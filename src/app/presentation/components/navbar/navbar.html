@@ -1,21 +1,20 @@
 <header class="flex w-full h-2/6 p-4 px-20">
     <div class="flex justify-between">
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between items-center w-50">
             <img src="assets/juan.jpeg" alt="Profile Image" 
             class="object-cover w-24 h-24 rounded-full">
             <h1 class="font-bold text-3xl m-2 my-4" #asTitle>Juan José</h1>
-
         </div>
     </div>
     <nav class="flex w-full p-4">
-        <ul class="flex justify-end w-full">
+        <ul class="flex justify-end w-3/5">
             <li><a class="font-bold text-3xl m-2 my-4 cursor-pointer">Inicio</a></li>
             <li><a class="font-bold text-3xl m-2 my-4 cursor-pointer">Acerca de mi</a></li>
             <li><a class="font-bold text-3xl m-2 my-4 cursor-pointer">Proyectos</a></li>
             <li><a class="font-bold text-3xl m-2 my-4 cursor-pointer"
                 (mouseenter)="hover = true" 
                 (mouseleave)="hover = false"
-                [class.cursor-custom]="hover">Contactame</a></li>
+                [class.cursor-custom]="hover" routerLink="/contact">Contactame</a></li>
         </ul>
     </nav>
 </header>

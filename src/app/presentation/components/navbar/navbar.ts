@@ -8,6 +8,4 @@ import { RouterLink } from '@angular/router';
 })
 export class Navbar {
   hover = false;
-
-
 }
