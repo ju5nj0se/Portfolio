@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -7,5 +7,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './navbar.html',
 })
 export class Navbar {
+  hover = false;
+
 
 }
