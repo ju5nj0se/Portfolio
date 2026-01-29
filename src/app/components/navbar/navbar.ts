@@ -7,7 +7,11 @@ import { RouterLink } from '@angular/router';
   templateUrl: './navbar.html',
 })
 export class Navbar {
-  hover = false;
+  isMenuOpen = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 
 
 }

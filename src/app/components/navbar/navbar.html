@@ -1,21 +1,32 @@
-<header class="flex w-full h-2/6 p-4 px-20">
-    <div class="flex justify-between">
-        <div class="flex justify-between items-center">
-            <img src="assets/juan.jpeg" alt="Profile Image" 
-            class="object-cover w-24 h-24 rounded-full">
-            <h1 class="font-bold text-3xl m-2 my-4" #asTitle>Juan José</h1>
-
-        </div>
+<header class="flex justify-between w-full p-5 px-7 space-1">
+    <div class="flex justify-between items-center">
+        <img src="assets/juan.jpeg" alt="Profile Image" class="object-cover w-20 h-auto rounded-full">
+        <h1 class="font-bold m-2 my-4 whitespace-nowrap">Juan José</h1>
     </div>
-    <nav class="flex w-full p-4">
-        <ul class="flex justify-end w-full">
+
+    <nav class="w-full">
+        <button (click)='toggleMenu()' class="md:hidden focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                @if (!isMenuOpen) {
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                } @else {
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                }
+            </svg>
+        </button>
+
+        <ul class="hidden md:flex justify-end w-full">
             <li><a class="font-bold text-3xl m-2 my-4 cursor-pointer">Inicio</a></li>
             <li><a class="font-bold text-3xl m-2 my-4 cursor-pointer">Acerca de mi</a></li>
             <li><a class="font-bold text-3xl m-2 my-4 cursor-pointer">Proyectos</a></li>
-            <li><a class="font-bold text-3xl m-2 my-4 cursor-pointer"
-                (mouseenter)="hover = true" 
-                (mouseleave)="hover = false"
-                [class.cursor-custom]="hover">Contactame</a></li>
+            <li><a class="font-bold text-3xl m-2 my-4 cursor-pointer">Contactame</a></li>
+        </ul>
+
+        <ul [class.hidden]="!isMenuOpen"  class="md:hidden max-w-full">
+            <li><a class="m-2 my-4 cursor-pointer">Inicio</a></li>
+            <li><a class="m-2 my-4 cursor-pointer">Acerca de mi</a></li>
+            <li><a class="m-2 my-4 cursor-pointer">Proyectos</a></li>
+            <li><a class="m-2 my-4 cursor-pointer">Contactame</a></li>
         </ul>
     </nav>
 </header>
