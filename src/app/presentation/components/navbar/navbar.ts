@@ -12,6 +12,4 @@ export class Navbar {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
-
-
 }

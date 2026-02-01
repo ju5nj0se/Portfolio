@@ -1,11 +1,12 @@
-<header class="flex justify-between w-full p-5 px-7 space-1">
-    <div class="flex justify-between items-center">
+<header class="relative flex justify-between w-full p-5 px-15 pb-10">
+    <div class="flex justify-center items-center">
         <img src="assets/juan.jpeg" alt="Profile Image" class="object-cover w-20 h-auto rounded-full">
-        <h1 class="font-bold m-2 my-4 whitespace-nowrap">Juan José</h1>
+        <h1 class="font-bold m-2 px-2 whitespace-nowrap text-2xl md:text-3xl">Juan José</h1>
     </div>
 
-    <nav class="w-full">
-        <button (click)='toggleMenu()' class="md:hidden focus:outline-none">
+    <nav class="w-full flex justify-end items-center">
+        <!-- Boton menu mobile -->
+        <button (click)='toggleMenu()' class="md:hidden focus:outline-none z-50">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 @if (!isMenuOpen) {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -15,18 +16,32 @@
             </svg>
         </button>
 
-        <ul class="hidden md:flex justify-end w-full">
-            <li><a class="font-bold text-3xl m-2 my-4 cursor-pointer">Inicio</a></li>
-            <li><a class="font-bold text-3xl m-2 my-4 cursor-pointer">Acerca de mi</a></li>
-            <li><a class="font-bold text-3xl m-2 my-4 cursor-pointer">Proyectos</a></li>
-            <li><a class="font-bold text-3xl m-2 my-4 cursor-pointer">Contactame</a></li>
+        <!-- Menu desktop -->
+        <ul class="hidden justify-end w-full md:flex space-x-10 basis-2xl">
+            <li><a class="font-bold text-2xl m-2 my-4 cursor-pointer hover:text-gray-500 transition-colors">Home</a>
+            </li>
+            <li><a class="font-bold text-2xl m-2 my-4 cursor-pointer hover:text-gray-500 transition-colors">About me</a>
+            </li>
+            <li><a
+                    class="font-bold text-2xl m-2 my-4 cursor-pointer hover:text-gray-500 transition-colors">Projects</a>
+            </li>
+            <li><a
+                    class="font-bold text-2xl m-2 my-4 cursor-pointer hover:text-gray-500 transition-colors">Contact</a>
+            </li>
         </ul>
 
-        <ul [class.hidden]="!isMenuOpen"  class="md:hidden max-w-full">
-            <li><a class="m-2 my-4 cursor-pointer">Inicio</a></li>
-            <li><a class="m-2 my-4 cursor-pointer">Acerca de mi</a></li>
-            <li><a class="m-2 my-4 cursor-pointer">Proyectos</a></li>
-            <li><a class="m-2 my-4 cursor-pointer">Contactame</a></li>
+        <!-- Menu mobile -->
+        <ul class="md:hidde absolute top-0 left-0 w-full bg-white shadow-xl flex flex-col items-center py-6 z-40 transition-all duration-300 ease-in-out transform origin-top"
+            [class.opacity-0]="!isMenuOpen" [class.invisible]="!isMenuOpen" [class.-translate-y-5]="!isMenuOpen"
+            [class.opacity-100]="isMenuOpen" [class.visible]="isMenuOpen" [class.translate-y-0]="isMenuOpen">
+            <li class="w-full text-center hover:bg-gray-100"><a
+                    class="block py-4 font-semibold text-xl cursor-pointer">Home</a></li>
+            <li class="w-full text-center hover:bg-gray-100"><a
+                    class="block py-4 font-semibold text-xl cursor-pointer">About me</a></li>
+            <li class="w-full text-center hover:bg-gray-100"><a
+                    class="block py-4 font-semibold text-xl cursor-pointer">Projects</a></li>
+            <li class="w-full text-center hover:bg-gray-100"><a
+                    class="block py-4 font-semibold text-xl cursor-pointer">Contact</a></li>
         </ul>
     </nav>
 </header>
