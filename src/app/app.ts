@@ -1,9 +1,13 @@
 import { NgStyle } from '@angular/common';
 import { Component, HostListener, signal } from '@angular/core';
+import { AsideNavbar } from './presentation2/components/aside-navbar/aside-navbar';
+import { About } from './presentation2/sections/about/about';
+import { Experience } from './presentation2/sections/experience/experience';
+import { Projects } from './presentation2/sections/projects/projects';
 
 @Component({
   selector: 'app-root',
-  imports: [NgStyle],
+  imports: [NgStyle, AsideNavbar, About, Experience, Projects],
   templateUrl: './app.html',
 })
 export class App {
@@ -48,7 +52,6 @@ export class App {
     return this.spotlightY + (this.isMobile ? this.scrollY : this.scrollY);
   }
 
-  // Se mantiene igual, pero ahora solo actualizamos los valores raw
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(event: MouseEvent) {
     if (!this.isMobile) {
@@ -70,8 +73,6 @@ export class App {
     { top: 90, left: 10, rotate: 6, src: 'eyes-images/eye4.png' },
     { top: 15, left: 40, rotate: -3, src: 'eyes-images/eye5.png' },
     { top: 55, left: 95, rotate: 7, src: 'eyes-images/eye6.png' },
-
-    // Algunos extras para llenar espacios
     { top: 35, left: 5, rotate: 12, src: 'eyes-images/eye.png' },
     { top: 85, left: 55, rotate: -10, src: 'eyes-images/eye2.png' },
   ];

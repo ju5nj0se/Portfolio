@@ -1,3 +1,8 @@
+<!-- Fondo negro fijo -->
+<div class="fixed inset-0 bg-gray-950 md:bg-black -z-10"></div>
+
+<!-- Efecto de linterna para escritorio -->
+@if (!isMobile) {
 <!-- Linterna -->
 <div class="pointer-events-none fixed inset-0 z-30 transition duration-300" [ngStyle]="{
         'background': 'radial-gradient(600px at ' + spotlightX + 'px ' + spotlightY + 'px, rgba(29, 78, 216, 0.15), transparent 80%)'
@@ -5,23 +10,37 @@
 </div>
 
 <!-- Capa de "Revelado" - Cambiado a ABSOLUTE para moverse con el scroll -->
-<div class="pointer-events-none absolute inset-0 w-full h-full z-20"
+<div class="pointer-events-none fixed inset-0 w-full z-20"
     [style.mask-image]="'radial-gradient(circle 200px at ' + spotlightX + 'px ' + spotlightY + 'px, black 30%, transparent 70%)'"
     [style.-webkit-mask-image]="'radial-gradient(circle 200px at ' + spotlightX + 'px ' + spotlightY + 'px, black 30%, transparent 70%)'">
 
     @for (item of items; track $index) {
     <!-- La "Hoja" de papel oculta -->
-    <div class="absolute  p-3 shadow-xl transform origin-center transition-transform hover:scale-105"
-        [style.left.%]="item.left" [style.top.%]="item.top" [style.transform]="'rotate(' + item.rotate + 'deg)'">
+    <div class="absolute transform origin-center transition-transform hover:scale-105" [style.left.%]="item.left"
+        [style.top.%]="item.top" [style.transform]="'rotate(' + item.rotate + 'deg)'">
 
         <img [src]="item.src" alt="Watching eye"
             class="w-[100px] h-auto object-cover opacity-90 mix-blend-multiply filter contrast-125">
     </div>
     }
 </div>
+} @else {
+<!-- Linterna estática para móvil (Fondo fijo en la esquina) -->
+<div class="pointer-events-none fixed inset-1 z-30 transition duration-300"
+    style="background: radial-gradient(ellipse 1500px 500px at 0% 0%, rgba(29, 78, 216, 0.15), transparent 80%);">
+</div>
+}
 
-<div class="bg-black min-h-screen w-full ">
-    <main>
-    
+<!-- Contenedor principal -->
+<div class="min-h-screen w-full absolute z-25">
+    <main class="mx-10 md:mx-80 mt-10 text-white flex flex-col md:flex-row">
+        <div>
+            <app-aside-navbar></app-aside-navbar>
+        </div>
+        <div class="flex flex-col gap-10 w-full">
+            <app-about></app-about>
+            <app-experience></app-experience>
+            <app-projects></app-projects>
+        </div>
     </main>
 </div>
