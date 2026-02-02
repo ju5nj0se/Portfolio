@@ -1,8 +1,27 @@
-<div class="flex flex-col min-h-screen">
-    <app-navbar />
-    <app-home id="home" />
-    <app-about-me id="about-me" />
-    <app-projects id="projects" />
-    <app-contact id="contact" />
-    <app-footer />
+<!-- Linterna -->
+<div class="pointer-events-none fixed inset-0 z-30 transition duration-300" [ngStyle]="{
+        'background': 'radial-gradient(600px at ' + spotlightX + 'px ' + spotlightY + 'px, rgba(29, 78, 216, 0.15), transparent 80%)'
+    }">
+</div>
+
+<!-- Capa de "Revelado" - Cambiado a ABSOLUTE para moverse con el scroll -->
+<div class="pointer-events-none absolute inset-0 w-full h-full z-20"
+    [style.mask-image]="'radial-gradient(circle 200px at ' + spotlightX + 'px ' + spotlightY + 'px, black 30%, transparent 70%)'"
+    [style.-webkit-mask-image]="'radial-gradient(circle 200px at ' + spotlightX + 'px ' + spotlightY + 'px, black 30%, transparent 70%)'">
+
+    @for (item of items; track $index) {
+    <!-- La "Hoja" de papel oculta -->
+    <div class="absolute  p-3 shadow-xl transform origin-center transition-transform hover:scale-105"
+        [style.left.%]="item.left" [style.top.%]="item.top" [style.transform]="'rotate(' + item.rotate + 'deg)'">
+
+        <img [src]="item.src" alt="Watching eye"
+            class="w-[100px] h-auto object-cover opacity-90 mix-blend-multiply filter contrast-125">
+    </div>
+    }
+</div>
+
+<div class="bg-black min-h-screen w-full ">
+    <main>
+    
+    </main>
 </div>
