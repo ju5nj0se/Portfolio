@@ -1,9 +1,9 @@
 import { NgStyle } from '@angular/common';
 import { Component, HostListener, signal } from '@angular/core';
-import { AsideNavbar } from './presentation2/components/aside-navbar/aside-navbar';
-import { About } from './presentation2/sections/about/about';
-import { Experience } from './presentation2/sections/experience/experience';
-import { Projects } from './presentation2/sections/projects/projects';
+import { AsideNavbar } from './presentation/components/aside-navbar/aside-navbar';
+import { About } from './presentation/sections/about/about';
+import { Experience } from './presentation/sections/experience/experience';
+import { Projects } from './presentation/sections/projects/projects';
 
 @Component({
   selector: 'app-root',

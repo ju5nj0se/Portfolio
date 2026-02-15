@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-card-experience',
   imports: [],
   templateUrl: './card-experience.html',
-  styleUrl: './card-experience.css',
 })
 export class CardExperience {
 

@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { Home } from './presentation/sections/home/home';
+import { App } from './app';
 
 export const routes: Routes = [
     {
         path: '',
-        component: Home
+        component: App
     }
 ];

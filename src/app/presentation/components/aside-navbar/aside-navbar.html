@@ -1,0 +1,18 @@
+<header class="md:h-screen flex flex-col justify-between pb-10">
+    <div class="flex flex-col justify-between h-1/6">
+        <div>
+            <h1 class="text-2xl font-bold">Juan José Hernández</h1>
+            <h2 class="text-xl">Full Stack Developer</h2>
+        </div>
+        <nav class="hidden md:flex flex-col">
+            @for (section of sections; track $index) {
+            <a href="#{{ section.id }}" class="transition-all duration-300" (click)="setActiveSection(section.id)"
+                [ngClass]="{
+                    'text-white font-semibold': activeSection === section.id,
+                    'text-gray-500': activeSection !== section.id
+                }">{{ section.label }}</a>
+            }
+        </nav>
+    </div>
+    <app-contact-red-socials class="my-5"></app-contact-red-socials>
+</header>
